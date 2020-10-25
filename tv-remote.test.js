@@ -2,8 +2,9 @@ describe("Sample Tests", function () {
 
     it("single character words", function () {
         Test.assertEquals(tvRemote("a"), 1);
-        Test.assertEquals(tvRemote("c"), 5);
+        Test.assertEquals(tvRemote("e"), 5);
         Test.assertEquals(tvRemote("k"), 3);
+        Test.assertEquals(tvRemote("h"), 4);
     });
 
     it("example", function () {
