@@ -1,4 +1,4 @@
-Background
+##Background
 
 My TV remote control has arrow buttons and an OK button.
 
@@ -7,11 +7,13 @@ I can use these to move a "cursor" on a logical screen keyboard to type "words".
 The screen "keyboard" layout looks like this
 a	b	c	d	e	1	2	3
 f	g	h	i	j	4	5	6
+
 k	l	m	n	o	7	8	9
+
 p	q	r	s	t	.	@	0
 u	v	w	x	y	z	_	/
 
-Task
+###Task
 
 How many button presses on my remote are required to type a given word?
 Notes
@@ -22,7 +24,7 @@ Notes
     The cursor does not wrap (e.g. you cannot leave one edge and reappear on the opposite edge)
     A "word" (for the purpose of this Kata) is any sequence of characters available on my virtual "keyboard"
 
-Example
+###Example
 
 word = codewars
 
