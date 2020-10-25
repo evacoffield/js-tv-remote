@@ -7,12 +7,6 @@ var tvRemote = function (word) {
         ["u", "v", "w", "x", "y", "z", "_", "/"]
     ];
 
-    let currentCharacter = 'a';
-    const characters = word.split('');
-    console.log(characters);
-    let presses = 0;
-    presses += word.length;
-
     const getRowsAndColumns = (character) => {
         const rowNumber = keyboard.findIndex((row) => row.includes(character));
         const columnNumber = keyboard[rowNumber].findIndex((item) => item === character);
@@ -20,22 +14,22 @@ var tvRemote = function (word) {
         return [rowNumber, columnNumber];
     }
 
-    characters.forEach(char => {
-        //const currentRowNumber = getRowsAndColumns(currentCharacter)[0];
-        //const currentColumnNumber = getRowsAndColumns(currentCharacter)[1];
-      
-        const [currentRowNumber, currentColumnNumber] = getRowsAndColumns(currentCharacter);
+    let currentCharacter = 'a';
+    let [currentRowNumber, currentColumnNumber] = getRowsAndColumns(currentCharacter);
+    const characters = word.split('');
+    console.log(characters);
+    let presses = 0;
+    presses += word.length;
 
-        //const nextRowNumber = getRowsAndColumns(char)[0];
-        //const nextColumnNumber = getRowsAndColumns(char)[1];
-      
+    characters.forEach(char => {
         const [nextRowNumber, nextColumnNumber] = getRowsAndColumns(char);
 
         const horizontalMoves = Math.abs(nextColumnNumber - currentColumnNumber);
         const verticalMoves = Math.abs(nextRowNumber - currentRowNumber);
 
-        presses = presses + horizontalMoves + verticalMoves;
-        currentCharacter = char;
+        presses += horizontalMoves + verticalMoves;
+        currentRowNumber = nextRowNumber;
+        currentColumnNumber = nextColumnNumber;
     });
 
     return presses;
