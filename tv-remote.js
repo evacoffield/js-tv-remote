@@ -18,8 +18,7 @@ var tvRemote = function (word) {
     let [currentRowNumber, currentColumnNumber] = getRowsAndColumns(currentCharacter);
     const characters = word.split('');
     console.log(characters);
-    let presses = 0;
-    presses += word.length;
+    let presses = word.length;
 
     characters.forEach(char => {
         const [nextRowNumber, nextColumnNumber] = getRowsAndColumns(char);
