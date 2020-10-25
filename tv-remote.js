@@ -13,12 +13,23 @@ var tvRemote = function (word) {
     let presses = 0;
     presses += word.length;
 
-    characters.forEach(char => {
-        const currentRowNumber = keyboard.findIndex((row) => row.includes(currentCharacter));
-        const currentColumnNumber = keyboard[currentRowNumber].findIndex((item) => item === currentCharacter);
+    const getRowsAndColumns = (character) => {
+        const rowNumber = keyboard.findIndex((row) => row.includes(character));
+        const columnNumber = keyboard[rowNumber].findIndex((item) => item === character);
 
-        const nextRowNumber = keyboard.findIndex((row) => row.includes(char));
-        const nextColumnNumber = keyboard[nextRowNumber].findIndex((item) => item === char);
+        return [rowNumber, columnNumber];
+    }
+
+    characters.forEach(char => {
+        //const currentRowNumber = getRowsAndColumns(currentCharacter)[0];
+        //const currentColumnNumber = getRowsAndColumns(currentCharacter)[1];
+      
+        const [currentRowNumber, currentColumnNumber] = getRowsAndColumns(currentCharacter);
+
+        //const nextRowNumber = getRowsAndColumns(char)[0];
+        //const nextColumnNumber = getRowsAndColumns(char)[1];
+      
+        const [nextRowNumber, nextColumnNumber] = getRowsAndColumns(char);
 
         const horizontalMoves = Math.abs(nextColumnNumber - currentColumnNumber);
         const verticalMoves = Math.abs(nextRowNumber - currentRowNumber);
