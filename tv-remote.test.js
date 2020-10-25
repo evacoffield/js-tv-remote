@@ -1,10 +1,12 @@
 describe("Sample Tests", function () {
 
-    it("example", function () {
+    it("single character words", function () {
         Test.assertEquals(tvRemote("a"), 1);
         Test.assertEquals(tvRemote("c"), 5);
         Test.assertEquals(tvRemote("k"), 3);
-        Test.assertEquals(tvRemote("k"), 6);
+    });
+
+    it("example", function () {
         Test.assertEquals(tvRemote("codewars"), 36);
     });
 
